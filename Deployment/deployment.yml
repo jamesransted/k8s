@@ -1,6 +1,7 @@
-apiVersion:kind:
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name:
+  name:  testapp-deployment
   labels:
     app: testapp
     type: front-end
@@ -13,9 +14,10 @@ spec:
         type: front-end
     spec:
       containers:
-        - name: nginx-container
-          image: nginx-container
-replicas: 3
-selector:
-  matchLabels: 
+      - name: nginx-container
+        image: nginx-container
+  replicas: 3
+  selector:
+    matchLabels:
       type: front-end
+      
