@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: 
+  name: kubeinvaders-nginx-ingress
+  namespace: kubeinvaders
+spec:
+  ingressClassName: nginx 
+  rules:
+    - host:
+      http: 
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend: ?????
+              service:
+                name: demo-app-svc
+                port:
+                  number: 80
