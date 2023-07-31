@@ -4,15 +4,22 @@ metadata:
   name: kubeinvaders-nginx-ingress
   namespace: kubeinvaders
 spec:
-  ingressClassName: nginx 
+  ingressClassName: nginx #<< matches class name on kubeinvaders ingress 
   rules:
-    - host:
-      http: 
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend: ?????
-              service:
-                name: demo-app-svc
-                port:
-                  number: 80
+  - host:
+    http: 
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+           service:
+              name: app-svc #<< from a service?
+              port:
+                number: 80
+
+
+kubectl get ingress -A:
+
+NAMESPACE      NAME           CLASS   HOSTS                                                  ADDRESS   PORTS     AGE
+kubeinvaders   kubeinvaders   nginx   k8s-nlb-56d17c29053193fa.elb.us-east-1.amazonaws.com             80, 443
+

@@ -1,0 +1,27 @@
+AWS Network Load Balancer 
+
+https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/aws/deploy.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/aws/deploy.yaml
+
+Change namespaces 
+kubectl config set-context –namespace=<namespace>
+
+get details of a service
+k describe service <service-name> --namespace <test>
+
+nginx ingress-controller logs
+kubectl logs <nginx-ingress-pod> -n nginx-ingress
+
+
+check version ingress nginx
+kubectl exec -it -n ingress-nginx ingress-nginx-controller-79d66f886c-4nk6t -- /nginx-ingress-controller --version
+v1.8.1
+
+check kubernetes version
+kubectl version --short
+v.1.27.4
+
+kubectl get deploy,po,ing,svc -n kubeinvaders
+
+

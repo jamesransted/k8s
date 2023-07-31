@@ -1,0 +1,21 @@
+apiVersion:kind:
+metadata:
+  name:
+  labels:
+    app: testapp
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: testapp-pod
+      labels:
+        app: testapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx-container
+replicas: 3
+selector:
+  matchLabels: 
+      type: front-end
